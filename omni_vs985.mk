@@ -1,5 +1,5 @@
-#
-# Copyright (C) 2014 The CyanogenMod Project
+# Copyright (C) 2013 OmniROM Project
+# Copyright (C) 2012 The CyanogenMod Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,19 +12,22 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
+# Inherit Omni CDMA telephony parts
+$(call inherit-product, vendor/omni/config/cdma.mk)
 
-# Get non-open-source specific aspects
+# Inherit from the common Open Source product configuration
+$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
+
+# Inherit from our omni product configuration
+$(call inherit-product, vendor/omni/config/common.mk)
+
+# This is where we'd set a backup provider if we had one
 $(call inherit-product-if-exists, vendor/lge/vs985/vs985-vendor.mk)
 
 # Audio
 PRODUCT_COPY_FILES += \
     device/lge/g3-common/configs/mixer_paths_qcwcn.xml:system/etc/mixer_paths.xml
-
-# Overlays
-DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -51,3 +54,19 @@ PRODUCT_COPY_FILES += \
 
 # common g3
 $(call inherit-product, device/lge/g3-common/g3.mk)
+
+# Overlays
+DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
+
+# Discard inherited values and use our own instead.
+PRODUCT_DEVICE := vs985
+PRODUCT_NAME := omni_vs985
+PRODUCT_BRAND := lge
+PRODUCT_MODEL := LG-VS985
+PRODUCT_MANUFACTURER := LGE
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_DEVICE="g3" \
+    PRODUCT_NAME="g3_vzw_us" \
+    BUILD_FINGERPRINT="lge/g3_vzw/g3:4.4.2/KVT49L.VS98510B/VS98510B.1403785622:user/release-keys" \
+    PRIVATE_BUILD_DESC="g3_vzw-user 4.4.2 KVT49L.VS98510B VS98510B.1403785622 release-keys"
