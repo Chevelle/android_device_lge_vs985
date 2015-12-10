@@ -1,5 +1,3 @@
-Copyright 2014 - The CyanogenMod Project
-
 Device configuration for LGE G3 (VZW)
 =====================================
 
