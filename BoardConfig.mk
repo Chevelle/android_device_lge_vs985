@@ -12,7 +12,6 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
 # inherit from common g3
 -include device/lge/g3-common/BoardConfigCommon.mk
@@ -25,17 +24,29 @@ BLUETOOTH_HCI_USE_MCT := true
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/lge/vs985/bluetooth
 
 # Kernel
-TARGET_KERNEL_CONFIG := cyanogenmod_vs985_defconfig
+TARGET_KERNEL_CONFIG := omni_vs985_defconfig
 TARGET_REQUIRES_BUMP := true
 
+# NFC
+BOARD_NFC_HAL_SUFFIX := msm8974
+NFC_NXP_CHIP_TYPE := PN547C2
+
 # Partitions
+BOARD_CACHEIMAGE_PARTITION_SIZE := 889192448
 BOARD_BOOTIMAGE_PARTITION_SIZE := 16777216
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 16777216
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2692743168
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 27325360128
+TARGET_USERIMAGES_USE_F2FS := true
 
 # Recovery
 TARGET_RECOVERY_FSTAB := device/lge/vs985/rootdir/etc/fstab.g3
+
+# Releasetools
+TARGET_RELEASETOOLS_EXTENSIONS := device/lge/vs985
+
+# RIL
+BOARD_RIL_CLASS += ../../../device/lge/vs985/ril/
 
 # Wifi
 BOARD_HAS_QCOM_WLAN := true
