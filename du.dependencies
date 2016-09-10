@@ -1,0 +1,27 @@
+[
+  {
+    "repository":  "DirtyUnicorns/android_device_lge_g3-common",
+    "target_path": "device/lge/g3-common",
+    "branch":      "m-caf"
+  },
+  {
+    "repository":  "DirtyUnicorns/android_external_connectivity",
+    "target_path": "external/connectivity",
+    "branch":      "m-caf"
+  },
+  {
+    "repository":  "DirtyUnicorns/android_kernel_lge_g3",
+    "target_path": "kernel/lge/g3",
+    "branch":      "m-caf"
+  },
+  {
+    "repository":  "DirtyUnicorns/android_packages_apps_Snap",
+    "target_path": "packages/apps/Snap",
+    "branch":      "m-caf"
+  },
+  {
+    "repository":  "TheMuppets/proprietary_vendor_lge",
+    "target_path": "vendor/lge",
+    "branch":      "cm-13.0"
+  }
+]

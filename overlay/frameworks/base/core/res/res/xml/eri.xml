@@ -19,7 +19,7 @@
      The icon is turned OFF if then IconIndex = 1 -->
 
 <EriFile VersionNumber="5"
-         NumberOfEriEntries="19"
+         NumberOfEriEntries="20"
          EriFileType="2">
 
          <CallPromptId Id="0"
@@ -176,6 +176,14 @@
                   DataServiceSupport="1"/>
 
          <EriInfo RoamingIndicator="79"
+                  IconIndex="3"
+                  IconMode="1"
+                  EriText="Network Extender"
+                  CallPromptId="0"
+                  AlertId="1"
+                  DataServiceSupport="1"/>
+
+         <EriInfo RoamingIndicator="99"
                   IconIndex="3"
                   IconMode="1"
                   EriText="Network Extender"
